@@ -1,5 +1,5 @@
 {
-  "name": "solana-tip-vercel",
+  "name": "sol-tipjar",
   "version": "1.0.0",
   "private": true,
   "description": "A Solana Action/Blink for receiving SOL tips.",
