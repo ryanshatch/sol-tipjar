@@ -1,6 +1,7 @@
 # Solana Tip Jar
 
-I delveloped this as an alternative since solscan is no longer hosting their Solana tipping action/blink.<br>This project is meant to replace it and be an open source and a complete Next.js App Router project that hosts a Solana Action/Blink for receiving native SOL tips.
+I delveloped this as an alternative since solscan is no longer hosting their Solana tipping action/blink.
+> This project is still under development and is meant to replace Solscans tip endpoints with an open source Next.js App Router project that hosts its own <code>Solana</code> Action/Blink for receiving native <code>SOL</code> tips.
 
 The Action endpoint exposes:
 
