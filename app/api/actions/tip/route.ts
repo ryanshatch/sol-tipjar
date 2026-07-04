@@ -40,10 +40,12 @@ export async function GET(request: Request) {
       links: {
         actions: [
           ...PRESET_TIP_AMOUNTS_SOL.map((amount) => ({
+            type: "post" as const,
             label: `Tip ${amount} SOL`,
             href: `${actionUrl}?amount=${amount}`,
           })),
           {
+            type: "post" as const,
             label: "Custom SOL Tip",
             href: `${actionUrl}?amount={amount}`,
             parameters: [
@@ -112,6 +114,7 @@ export async function POST(request: Request) {
 
     const payload: ActionPostResponse = await createPostResponse({
       fields: {
+        type: "transaction",
         transaction,
         message: `Send ${amountSol} SOL to ${destination.toBase58()}. ${APP_DESCRIPTION}`,
       },

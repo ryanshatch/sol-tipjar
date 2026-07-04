@@ -13,9 +13,9 @@
   "dependencies": {
     "@solana/actions": "latest",
     "@solana/web3.js": "^1.98.0",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "next": "^16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@types/node": "latest",
@@ -24,6 +24,6 @@
     "typescript": "latest"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.x"
   }
 }
