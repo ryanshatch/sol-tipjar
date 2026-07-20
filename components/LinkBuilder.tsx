@@ -5,7 +5,7 @@ import { CopyButton } from "@/components/CopyButton";
 
 export function LinkBuilder() {
   // const [origin, setOrigin] = useState("https://your-project.vercel.app");
-  const [origin, setOrigin] = useState("https://tip-jar.ryanshatch.vercel.app");
+  const [origin, setOrigin] = useState("https://sol-tipjar.vercel.app/");
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_SITE_URL) {
@@ -27,7 +27,7 @@ export function LinkBuilder() {
     <section className="card stack">
       <div>
         <p className="eyebrow">Share links</p>
-        <h2>Your generated Blink links</h2>
+        <h2>Blink links</h2>
         <p className="muted">
           After deploying, replace the placeholder domain automatically by visiting this
           page on your Vercel URL.
