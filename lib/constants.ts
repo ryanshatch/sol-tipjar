@@ -1,7 +1,7 @@
 export const APP_TITLE = "Solana Tip Jar";
 
 export const APP_DESCRIPTION =
-  "Thank you for your kind support. Any tip is appreciated.";
+  "Send a secure, non-custodial SOL tip directly on Solana.";
 
 export const DEFAULT_DESTINATION_ADDRESS =
   "777ePKXhcxMdJPMA22YeiR6pdMUTadnpT7AUyto2Y24N";
