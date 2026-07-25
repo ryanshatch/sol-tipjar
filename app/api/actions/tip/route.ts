@@ -27,18 +27,21 @@ export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
   try {
+    const requestUrl = new URL(request.url);
     const origin = getBaseUrlFromRequest(request);
     const actionUrl = buildActionUrl(origin);
     const destination = getDestinationPublicKey();
+    const requestedAmount = requestUrl.searchParams.get("amount")?.trim();
 
-    const payload: ActionGetResponse = {
-      type: "action",
-      title: APP_TITLE,
-      icon: new URL("/icon.png", origin).toString(),
-      description: `${APP_DESCRIPTION}\n\nTips go to: ${destination.toBase58()}`,
-      label: "Send Tip",
-      links: {
-        actions: [
+    const actions = requestedAmount
+      ? [
+          {
+            type: "post" as const,
+            label: `Send ${parseTipAmount(requestUrl.searchParams)} SOL`,
+            href: `${actionUrl}?amount=${encodeURIComponent(requestedAmount)}`,
+          },
+        ]
+      : [
           ...PRESET_TIP_AMOUNTS_SOL.map((amount) => ({
             type: "post" as const,
             label: `Tip ${amount} SOL`,
@@ -46,7 +49,7 @@ export async function GET(request: Request) {
           })),
           {
             type: "post" as const,
-            label: "Custom SOL Tip",
+            label: "Custom SOL tip",
             href: `${actionUrl}?amount={amount}`,
             parameters: [
               {
@@ -55,12 +58,19 @@ export async function GET(request: Request) {
                 required: true,
                 pattern: "^[0-9]+(\\.[0-9]{1,9})?$",
                 patternDescription:
-                  "Enter SOL amount with up to 9 decimal places.",
+                  "Enter a SOL amount with up to 9 decimal places.",
               },
             ],
           },
-        ],
-      },
+        ];
+
+    const payload: ActionGetResponse = {
+      type: "action",
+      title: APP_TITLE,
+      icon: new URL("/icon.png", origin).toString(),
+      description: `${APP_DESCRIPTION}\n\nRecipient: ${destination.toBase58()}`,
+      label: "Send tip",
+      links: { actions },
     };
 
     return Response.json(payload, { headers: actionHeaders });
@@ -82,17 +92,18 @@ export async function POST(request: Request) {
 
     const body = (await request.json()) as ActionPostRequest;
     const sender = parseSenderPublicKey(body.account);
-
     const connection = getSolanaConnection();
-
     const destinationAccount = await connection.getAccountInfo(destination);
 
     if (!destinationAccount) {
-      const minimumBalance = await connection.getMinimumBalanceForRentExemption(0);
+      const minimumBalance =
+        await connection.getMinimumBalanceForRentExemption(0);
 
       if (lamports < minimumBalance) {
         throw new Error(
-          `The receiving account does not appear to exist yet. Send at least ${minimumBalance / 1_000_000_000} SOL to make it rent-exempt.`,
+          `The receiving account does not appear to exist yet. Send at least ${
+            minimumBalance / 1_000_000_000
+          } SOL to make it rent-exempt.`,
         );
       }
     }
@@ -129,7 +140,9 @@ export async function POST(request: Request) {
 function actionErrorResponse(error: unknown): Response {
   const payload: ActionError = {
     message:
-      error instanceof Error ? error.message : "Unable to create Solana tip action.",
+      error instanceof Error
+        ? error.message
+        : "Unable to create Solana tip action.",
   };
 
   return Response.json(payload, {
