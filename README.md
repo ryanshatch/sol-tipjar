@@ -5,12 +5,18 @@ a Solana Action/Blink.
 
 The project has two connected surfaces:
 
-- A branded public tip-jar page where visitors choose an amount.
+- A branded public tip-jar page where visitors connect a Wallet
+  Standard-compatible Solana wallet and send a tip directly.
 - A Solana Action API that creates the unsigned transfer transaction.
 
-The public page sends visitors to Dial to connect a compatible wallet, review
-the exact destination and amount, sign, and submit. The server never receives a
-private key and cannot sign on the sender's behalf.
+The public page requests an unsigned transaction from its own Action API,
+checks that the returned transaction contains only the expected native SOL
+transfer, and asks the connected wallet to sign and submit it. The server never
+receives a private key and cannot sign on the sender's behalf.
+
+Wallets are discovered through the Solana Wallet Standard. Phantom, Solflare,
+Backpack, and other compatible wallets can connect without routing the visitor
+through a third-party Blink interstitial.
 
 ## Action routes
 
@@ -37,9 +43,14 @@ TIP_DESTINATION_ADDRESS=YOUR_SOLANA_WALLET_ADDRESS
 You can also set:
 
 ```text
-NEXT_PUBLIC_SITE_URL=https://your-domain.example
 SOLANA_RPC_URL=https://your-mainnet-rpc.example
+NEXT_PUBLIC_SOLANA_RPC_URL=https://your-browser-safe-mainnet-rpc.example
 ```
+
+`SOLANA_RPC_URL` is used by the server to build transactions.
+`NEXT_PUBLIC_SOLANA_RPC_URL` is optional and is exposed to the browser for
+sending and confirming transactions. If it is omitted, the app uses Solana's
+public mainnet endpoint.
 
 ## Local development
 
