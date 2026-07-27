@@ -456,6 +456,81 @@ a:focus-visible {
   color: var(--danger);
 }
 
+.presetButton:disabled,
+.inputShell input:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.walletRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.18);
+  padding: 12px 13px;
+}
+
+.walletRow.connected {
+  border-color: rgba(93, 242, 199, 0.22);
+  background: rgba(93, 242, 199, 0.045);
+}
+
+.walletIdentity {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+}
+
+.walletIdentity span {
+  color: #777580;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.walletIdentity code {
+  overflow: hidden;
+  color: #cbc8d1;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.72rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.walletRow.connected .walletIdentity code {
+  color: #c7fbed;
+}
+
+.walletControl {
+  cursor: pointer;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 10px;
+  color: #dedbe3;
+  font-size: 0.7rem;
+  font-weight: 780;
+  transition:
+    border-color 150ms ease,
+    background 150ms ease;
+}
+
+.walletControl:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.walletControl:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .tipButton {
   cursor: pointer;
   display: flex;
@@ -489,6 +564,83 @@ a:focus-visible {
   box-shadow: none;
   color: #777580;
   transform: none;
+}
+
+.buttonSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+.tipStatus {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-top: 14px;
+  border: 1px solid rgba(171, 101, 255, 0.24);
+  border-radius: 13px;
+  background: rgba(171, 101, 255, 0.07);
+  padding: 12px;
+}
+
+.tipStatus.success {
+  border-color: rgba(93, 242, 199, 0.3);
+  background: rgba(93, 242, 199, 0.07);
+}
+
+.tipStatus.error {
+  border-color: rgba(255, 143, 154, 0.3);
+  background: rgba(255, 143, 154, 0.07);
+}
+
+.statusIcon {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: var(--purple);
+  box-shadow: 0 0 12px rgba(171, 101, 255, 0.7);
+}
+
+.tipStatus.success .statusIcon {
+  background: var(--mint);
+  box-shadow: 0 0 12px rgba(93, 242, 199, 0.7);
+}
+
+.tipStatus.error .statusIcon {
+  background: var(--danger);
+  box-shadow: 0 0 12px rgba(255, 143, 154, 0.55);
+}
+
+.tipStatus > div {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+}
+
+.tipStatus strong {
+  color: #eeeaf2;
+  font-size: 0.75rem;
+}
+
+.tipStatus p {
+  margin: 0;
+  color: #9d99a7;
+  font-size: 0.7rem;
+  line-height: 1.45;
+}
+
+.tipStatus a {
+  width: fit-content;
+  margin-top: 2px;
+  color: var(--mint);
+  font-size: 0.69rem;
+  font-weight: 750;
+  text-underline-offset: 3px;
 }
 
 .recipientRow {
@@ -618,6 +770,53 @@ a:focus-visible {
 
 .siteFooter p {
   margin: 0;
+}
+
+.wallet-adapter-modal {
+  backdrop-filter: blur(12px);
+}
+
+.wallet-adapter-modal-overlay {
+  background: rgba(4, 4, 7, 0.76);
+}
+
+.wallet-adapter-modal-wrapper {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 22px;
+  background:
+    linear-gradient(
+      150deg,
+      rgba(255, 255, 255, 0.065),
+      rgba(255, 255, 255, 0.015) 35%
+    ),
+    #111118;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.68);
+  font-family: inherit;
+}
+
+.wallet-adapter-modal-title {
+  color: var(--text);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+}
+
+.wallet-adapter-modal-button-close {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.wallet-adapter-modal-list .wallet-adapter-button {
+  border-radius: 12px;
+  font-family: inherit;
+}
+
+.wallet-adapter-modal-list .wallet-adapter-button:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (max-width: 900px) {
