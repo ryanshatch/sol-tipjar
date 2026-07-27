@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
+import { SolanaProvider } from "@/components/SolanaProvider";
 import { APP_DESCRIPTION, APP_TITLE } from "@/lib/constants";
+import "@solana/wallet-adapter-react-ui/styles.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,7 +32,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <SolanaProvider>{children}</SolanaProvider>
+      </body>
     </html>
   );
 }
