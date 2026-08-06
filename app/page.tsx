@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { TipComposer } from "@/components/TipComposer";
 import {
   DEFAULT_DESTINATION_ADDRESS,
@@ -8,13 +9,26 @@ import {
 
 function SolanaMark() {
   return (
-    <span className="solanaMark" aria-hidden="true">
-      <span />
-      <span />
-      <span />
-    </span>
+    <Image
+      className="brandMark"
+      src="/triage-mark.png"
+      alt=""
+      width={32}
+      height={32}
+      priority
+    />
   );
 }
+
+// function SolanaMark() {
+//   return (
+//     <span className="solanaMark" aria-hidden="true">
+//       <span />
+//       <span />
+//       <span />
+//     </span>
+//   );
+// }
 
 function ArrowIcon() {
   return (
