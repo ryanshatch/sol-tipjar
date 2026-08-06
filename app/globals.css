@@ -114,6 +114,18 @@ a:focus-visible {
   border-bottom: 1px solid var(--line);
 }
 
+.brandMark {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.footerBrand .brandMark {
+  width: 25px;
+  height: 25px;
+  opacity: 0.65;
+}
+
 .brand,
 .footerBrand {
   display: inline-flex;
