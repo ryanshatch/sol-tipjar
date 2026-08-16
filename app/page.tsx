@@ -11,7 +11,7 @@ function SolanaMark() {
   return (
     <Image
       className="brandMark"
-      aria-hidden="true">
+      aria-hidden="true"
       src="/triage-mark.png"
       alt=""
       width={32}
