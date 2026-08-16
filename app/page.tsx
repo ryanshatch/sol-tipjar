@@ -40,7 +40,7 @@ export default function HomePage() {
       <div className="ambient ambientTwo" />
 
       <header className="siteHeader">
-        <a className="brand" href="#top" aria-label="Tip Jar home">
+        <a className="brand" href="#top" aria-label="SOL Tip Jar home">
           <SolanaMark />
           <span>SOL TIPJAR</span>
         </a>
@@ -60,22 +60,24 @@ export default function HomePage() {
         <div className="heroCopy">
           <p className="eyebrow">
             <span className="liveDot" />
-            Live on Solana mainnet.
-          </p>
-          <h1>
-            Support my work,
-            <span>completely on-chain.</span>
-          </h1>
-          <p className="heroText">
-            Send a tip in a few clicks. Choose an amount, review the
-            transaction in your wallet, and you&apos;re done.
+            Live on Solana mainnet
           </p>
 
-          <div className="trustRow" aria-label="Features:">
-            <span>No account</span>
-            <span>No custody</span>
-            <span>On-chain receipt</span>
-            <span>P2P Transactions</span>
+          <h1>
+            Support my work,
+            <span>directly on Solana.</span>
+          </h1>
+
+          <p className="heroText">
+            Send a SOL tip in just a few clicks. Choose an amount, review the
+            details in your wallet, and approve the transaction.
+          </p>
+
+          <div className="trustRow" aria-label="Tip jar features">
+            <span>No account required</span>
+            <span>Non-custodial</span>
+            <span>On-chain confirmation</span>
+            <span>Peer-to-peer</span>
           </div>
         </div>
 
@@ -90,24 +92,32 @@ export default function HomePage() {
       <section className="processSection" aria-labelledby="how-it-works">
         <div className="sectionHeading">
           <p className="eyebrow">Simple by design</p>
-          <h2 id="how-it-works">Directly from your wallet to mine.</h2>
+          <h2 id="how-it-works">Direct from your wallet to mine.</h2>
         </div>
 
         <div className="stepGrid">
           <article className="stepCard">
             <span className="stepNumber">01</span>
-            <h3>Choose an amount</h3>
-            <p>Select a preset or enter any supported SOL amount.</p>
+            <h3>Choose your tip</h3>
+            <p>Select a preset or enter a custom SOL amount.</p>
           </article>
+
           <article className="stepCard">
             <span className="stepNumber">02</span>
-            <h3>Review the transfer</h3>
-            <p>Your wallet will display the amount and the destination before you approve the txn.</p>
+            <h3>Review the details</h3>
+            <p>
+              Confirm the amount and destination in your wallet before
+              approving the transaction.
+            </p>
           </article>
+
           <article className="stepCard">
             <span className="stepNumber">03</span>
             <h3>Send on-chain</h3>
-            <p>The signed transaction is submitted directly to Solana.</p>
+            <p>
+              Your signed transaction is submitted directly to the Solana
+              network.
+            </p>
           </article>
         </div>
       </section>
@@ -115,9 +125,12 @@ export default function HomePage() {
       <footer className="siteFooter">
         <div className="footerBrand">
           <SolanaMark />
-          <span>Independent, open-source tipping on Solana.</span>
+          <span>Independent, open-source tipping built on Solana.</span>
         </div>
-        <p><strong>Private keys never touch this site.</strong></p>
+
+        <p>
+          <strong>Your private keys never leave your wallet.</strong>
+        </p>
       </footer>
     </main>
   );
