@@ -129,7 +129,7 @@ export default function HomePage() {
         </div>
 
         <p>
-          <strong>Your private keys never leave your wallet.<br>Copyright (c) 2026 Ryan Hatch.
+          <strong>Your private keys never leave your wallet. Copyright (c) 2026 Ryan Hatch.
         </p>
       </footer>
     </main>
