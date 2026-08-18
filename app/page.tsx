@@ -60,7 +60,7 @@ export default function HomePage() {
         <div className="heroCopy">
           <p className="eyebrow">
             <span className="liveDot" />
-            ◎ Live on mainnet
+             Live on mainnet ◎
           </p>
 
           <h1>
@@ -69,7 +69,7 @@ export default function HomePage() {
           </h1>
 
           <p className="heroText">
-            Tip with SOL. Choose an amount, confirm, done.
+            Tip with SOL. Choose an amount, review the transaction, confirm, done.
           </p>
 
           <div className="trustRow" aria-label="Tip jar features">
