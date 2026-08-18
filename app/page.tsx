@@ -42,7 +42,7 @@ export default function HomePage() {
       <header className="siteHeader">
         <a className="brand" href="#top" aria-label="SOL Tip Jar home">
           <SolanaMark />
-          <span>SOL TIPJAR</span>
+          <span>Tip with SOL</span>
         </a>
 
         <a
@@ -60,17 +60,16 @@ export default function HomePage() {
         <div className="heroCopy">
           <p className="eyebrow">
             <span className="liveDot" />
-            Live on Solana mainnet
+            ◎ Live on mainnet
           </p>
 
           <h1>
             Support my work,
-            <span>directly on Solana.</span>
+            <span>on Solana.</span>
           </h1>
 
           <p className="heroText">
-            Send a SOL tip in just a few clicks. Choose an amount, review the
-            details in your wallet, and approve the transaction.
+            Tip with SOL. Choose an amount, confirm, done.
           </p>
 
           <div className="trustRow" aria-label="Tip jar features">
@@ -91,22 +90,22 @@ export default function HomePage() {
 
       <section className="processSection" aria-labelledby="how-it-works">
         <div className="sectionHeading">
-          <p className="eyebrow">Simple by design</p>
-          <h2 id="how-it-works">Direct from your wallet to mine.</h2>
+          <p className="eyebrow">Built to be simple</p>
+          <h2 id="how-it-works">Direct wallet to wallet.</h2>
         </div>
 
         <div className="stepGrid">
           <article className="stepCard">
             <span className="stepNumber">01</span>
             <h3>Choose your tip</h3>
-            <p>Select a preset or enter a custom SOL amount.</p>
+            <p>Select a preset or enter an amount.</p>
           </article>
 
           <article className="stepCard">
             <span className="stepNumber">02</span>
             <h3>Review the details</h3>
             <p>
-              Confirm the amount and destination in your wallet before
+              Confirm the amount and destination before
               approving the transaction.
             </p>
           </article>
@@ -115,8 +114,7 @@ export default function HomePage() {
             <span className="stepNumber">03</span>
             <h3>Send on-chain</h3>
             <p>
-              Your signed transaction is submitted directly to the Solana
-              network.
+              After confirming, your wallet sends it on-chain to Solana.
             </p>
           </article>
         </div>
@@ -129,7 +127,7 @@ export default function HomePage() {
         </div>
 
         <p>
-          <strong>Your private keys never leave your wallet. Copyright (c) 2026 Ryan Hatch.</strong>
+          <strong>Simply Secured. Your private keys never leave your wallet. Copyright (c) 2026 Ryan Hatch.</strong>
         </p>
       </footer>
     </main>
