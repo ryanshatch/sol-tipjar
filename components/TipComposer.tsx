@@ -347,10 +347,6 @@ export function TipComposer({
         </div>
         <CopyButton value={destination} label="Copy" />
       </div>
-
-      <p className="walletNote">
-        Your wallet signs locally. This site never receives your private key.
-      </p>
     </aside>
   );
 }
