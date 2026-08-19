@@ -51,7 +51,7 @@ export default function HomePage() {
           target="_blank"
           rel="noreferrer"
         >
-          View source
+          View source code
           <ArrowIcon />
         </a>
       </header>
@@ -65,7 +65,7 @@ export default function HomePage() {
 
           <h1>
             Support my work,
-            <span>on Solana.</span>
+            <span>using Solana.</span>
           </h1>
 
           <p className="heroText">
@@ -77,6 +77,8 @@ export default function HomePage() {
             <span>Non-custodial</span>
             <span>On-chain confirmation</span>
             <span>Peer-to-peer</span>
+            <span>Zero extra fees</span>
+            <span>open source</span>
           </div>
         </div>
 
